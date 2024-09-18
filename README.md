@@ -28,7 +28,7 @@ This project is a mini-website built with **ReactJS** and styled using **Tailwin
 
    ```bash
     git clone https://github.com/gaelWumba/pawsomes
-    cd pawsome
+    cd pawsomes
 
    ```
 
