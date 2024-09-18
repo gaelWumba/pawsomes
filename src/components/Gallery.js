@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 
 function Gallery() {
   const [dogImages, setDogImages] = useState([]);
+  const [titleVisible, setTitleVisible] = useState(false);
+  const [semiCircleVisible, setSemiCircleVisible] = useState(false);
 
   // Fetch 6 random images
   const fetchDogImages = () => {
@@ -14,9 +16,17 @@ function Gallery() {
     fetchDogImages();
   }, []);
 
+  // Trigger animations on page load
+  useEffect(() => {
+    setTimeout(() => setTitleVisible(true), 300);
+    setTimeout(() => setSemiCircleVisible(true), 500); 
+  }, []);
+
   return (
     <div className="flex flex-col items-center justify-center bg-color-6 p-5">
-      <div className="grid md:grid-cols-2 lg:grid-cols-2 text-center p-6">
+      <div className={`grid md:grid-cols-2 lg:grid-cols-2 text-center p-6 transition-opacity duration-1000 ${
+          titleVisible ? "opacity-100" : "opacity-0"
+        }`}>
         <p className="text-2xl font-bold text-gray-800 text-left">#PAWSOME</p>
         <p className="text-xl text-gray-600 max-w-2xl text-left">
           Meet some of our pawsome friends, a group of companions that are sure
@@ -31,8 +41,9 @@ function Gallery() {
             <img
               src={image}
               alt={`Dog ${index}`}
-              className="w-full h-96 object-cover rounded-lg shadow-lg transition duration-300 transform group-hover:scale-105"
-            />
+              className={`w-full h-96 object-cover rounded-lg shadow-lg transition duration-300 transform group-hover:scale-105 ${
+          semiCircleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-full"
+        }`}/>
           </div>
         ))}
       </div>

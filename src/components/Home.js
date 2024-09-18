@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const [randomDogImage, setRandomDogImage] = useState("");
+  const [titleVisible, setTitleVisible] = useState(false);
+  const [semiCircleVisible, setSemiCircleVisible] = useState(false);
 
   // Fetch a random image from the API
   useEffect(() => {
@@ -11,14 +13,27 @@ const Home = () => {
       .then((data) => setRandomDogImage(data.message));
   }, []);
 
+  // Trigger animations on page load
+  useEffect(() => {
+    setTimeout(() => setTitleVisible(true), 300); 
+    setTimeout(() => setSemiCircleVisible(true), 300); 
+  }, []);
+
   return (
     <div className="flex items-center justify-center text-center overflow-hidden">
-      <h1 className="text-color-6 text-5xl md:text-6xl lg:text-8xl font-bold">
-        WE ARE PAWSOME !
+      <h1
+        className={`text-color-6 text-5xl md:text-6xl lg:text-8xl font-bold transition-opacity duration-1000 ${
+          titleVisible ? "opacity-100" : "opacity-0"
+        }`}
+      >        
+      WE ARE PAWSOME !
       </h1>
       {/* Semi-Circle background */}
-      <div className="absolute w-[100vw] md:w-[90vw] lg:w-[80vw] h-[100vw] md:h-[80vw] lg:h-[40vw] ease-in-out duration-300 p-2 bg-color-6 rounded-t-full bottom-0 opacity-80">
-        <div className="flex flex-col items-center">
+      <div
+        className={`absolute w-[100vw] md:w-[90vw] lg:w-[80vw] h-[100vw] md:h-[80vw] lg:h-[40vw] ease-in-out duration-1000 p-2 bg-color-6 rounded-t-full bottom-0 opacity-80 transform transition-all ${
+          semiCircleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-full"
+        }`}
+      >        <div className="flex flex-col items-center">
           {/* fetched image from the API */}
           {randomDogImage && (
             <img

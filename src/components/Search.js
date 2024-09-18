@@ -10,10 +10,20 @@ const Search = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const imagesPerPage = 6;
 
+  const [titleVisible, setTitleVisible] = useState(false);
+  const [semiCircleVisible, setSemiCircleVisible] = useState(false);
+
+
   // Fetch random dog images and breeds
   useEffect(() => {
     fetchRandomImages();
     fetchBreedsList();
+  }, []);
+
+  // Trigger animations on page load
+  useEffect(() => {
+    setTimeout(() => setTitleVisible(true), 300);
+    setTimeout(() => setSemiCircleVisible(true), 500); 
   }, []);
 
   const fetchRandomImages = () => {
@@ -147,8 +157,9 @@ const Search = () => {
                 <img
                   src={image}
                   alt={`Dog ${index}`}
-                  className="w-full h-96 object-cover rounded-lg shadow-lg transition duration-300 transform group-hover:scale-105"
-                />
+                  className={`w-full h-96 object-cover rounded-lg shadow-lg transition duration-300 transform group-hover:scale-105 ${
+                    semiCircleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-full"
+                 }`}/>
               </div>
             )
           )}
