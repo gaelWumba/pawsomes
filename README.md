@@ -13,7 +13,6 @@ This project is a mini-website built with **ReactJS** and styled using **Tailwin
 - **ReactJS**: UI development framework.
 - **Tailwind CSS**: Utility-first CSS framework for styling.
 - **Dog CEO API**: Source of random dog images.
-- **Vite**: Front-end build tool for fast development and optimized production.
 
 ---
 
@@ -28,7 +27,7 @@ This project is a mini-website built with **ReactJS** and styled using **Tailwin
 1. **Clone the Repository:**
 
    ```bash
-    git clone https://github.com/gaelWumba/pawsome
+    git clone https://github.com/gaelWumba/pawsomes
     cd pawsome
 
    ```
@@ -37,5 +36,5 @@ This project is a mini-website built with **ReactJS** and styled using **Tailwin
 
    ```bash
     npm install
-    npm run dev
+    npm start
    ```
