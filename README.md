@@ -1,6 +1,6 @@
 # 🐶 PAWSOME
 
-This project is a mini-website built with **ReactJS** and styled using **Tailwind CSS**, fetching real-time dog images using the [Dog CEO API](https://dog.ceo/dog-api/). It consists of three pages: Home, Gallery, and Breed Search.
+This project is a mini-website built with **ReactJS** and styled using **Tailwind CSS**, fetching dog images using the [Dog CEO API](https://dog.ceo/dog-api/). It consists of three pages: Home, Gallery, and Breed Search.
 
 ## 🚀 Features
 
